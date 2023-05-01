@@ -1,21 +1,41 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { FaGoogle, FaGithubAlt } from "react-icons/fa";
+import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
-    const [error,setError] = useState("")
-    const handleLogin = (event) =>{
-        event.preventDefault()
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(name,email,password,url);
-        setError("")
-    }
+  const { logIn, githubLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    setError("");
+    logIn(email,password)
+      .then((result) => console.log(result.user))
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      });
+  };
+
+  const handleGithubLogin = () => {
+    githubLogin()
+      .then((result) => console.log(result.user))
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      });
+  };
   return (
     <div className="w-50 mx-auto  ">
-      <Form onSubmit={handleLogin} className="mt-5 p-5 border border-2 rounded bg-light">
+      <Form
+        onSubmit={handleLogin}
+        className="mt-5 p-5 border border-2 rounded bg-light"
+      >
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="fw-bold fs-5">Email address</Form.Label>
           <Form.Control
@@ -35,9 +55,7 @@ const Login = () => {
             placeholder="Password"
           />
         </Form.Group>
-        <p className="text-center text-danger  fw-bold mt-3 ">
-          {error}
-        </p>
+        <p className="text-center text-danger  fw-bold mt-3 ">{error}</p>
         <Button variant="warning" type="submit" className="w-100 fw-bold mt-2">
           Submit
         </Button>
@@ -54,16 +72,22 @@ const Login = () => {
         <div className=" border-2  border-bottom  border-danger col-5"></div>
       </div>
       <div className="row mt-2 mb-4 ">
-        <Button variant="outline-warning" className=" col-5  bg-danger  text-dark fw-bold mt-2  ">
+        <Button
+          variant="outline-warning"
+          className=" col-5  bg-danger  text-dark fw-bold mt-2  "
+        >
           <FaGoogle className="me-2 my-auto"></FaGoogle>
           Login With Google
         </Button>
         <p className="col-2 text-center my-auto fw-bold text-dark fs-5"></p>
-        <Button variant="outline-warning" className=" col-5  bg-danger  text-dark fw-bold mt-2  ">
+        <Button
+          onClick={handleGithubLogin}
+          variant="outline-warning"
+          className=" col-5  bg-danger  text-dark fw-bold mt-2  "
+        >
           <FaGithubAlt className="me-2 my-auto"></FaGithubAlt>
           Login With Github
         </Button>
-        
       </div>
     </div>
   );

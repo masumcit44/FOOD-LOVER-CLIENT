@@ -23,7 +23,7 @@ const ChefDetails = () => {
   console.log(recipe);
   const notify = () => toast("Added to your favourite list");
   if (loading) {
-    return <Spinner animation="border" className="ms-5" variant="primary" />;
+    return <Spinner animation="border" className="ml-5" variant="primary" />;
   }
   return (
     <Container className="my-5">

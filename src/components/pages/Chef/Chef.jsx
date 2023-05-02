@@ -21,7 +21,7 @@ const Chef = () => {
       setLoading(false)
   }, []);
   if (loading) {
-    return <Spinner animation="border" className="ms-5" variant="primary" />;
+    return <Spinner animation="border" className="ml-5" variant="primary" />;
   }
   return (
     <div>

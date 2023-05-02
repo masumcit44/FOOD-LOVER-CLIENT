@@ -3,6 +3,7 @@ import { Container } from "react-bootstrap";
 import Banner from "../Banner/Banner";
 import Chef from "../Chef/Chef";
 import ExtraSectionOne from "../ExtraSectionOne/ExtraSectionOne";
+import ExtraSectionTwo from "../ExtraSectionTwo/ExtraSectionTwo";
 
 const Home = () => {
   return (
@@ -15,6 +16,9 @@ const Home = () => {
       </div>
       <div className="my-5">
         <ExtraSectionOne></ExtraSectionOne>
+      </div>
+      <div className="my-5">
+        <ExtraSectionTwo></ExtraSectionTwo>
       </div>
       
     </Container>

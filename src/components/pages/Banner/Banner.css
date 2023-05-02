@@ -1,0 +1,23 @@
+.carousel-img{
+    width: 100%;
+    height: 550px;
+}
+.sharp-image {
+    filter: brightness(0.8) contrast(1.2) saturate(1.5) url("#sharpen");
+  }
+
+  .carousel-caption {
+    font-size: 50px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    bottom: 100px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  }
+  .carousel-caption-description {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+    font-size: large;
+  }
+  

@@ -10,7 +10,6 @@ const Banner = () => {
         .then(res=>res.json())
         .then(data=>setRecipes(data.recipes))
     },[])
-    console.log(recipes);
     return (
         <Carousel slide={true} interval={1000} className=" " controls={false} indicators={false}>
             {recipes.map((recipe,index) => (

@@ -7,7 +7,7 @@ import Header from '../../shared/Header';
 
 const Main = () => {
     return (
-        <div>
+        <div className='overall-container'>
             <Header></Header>
             <Outlet></Outlet>
             <Footer></Footer>

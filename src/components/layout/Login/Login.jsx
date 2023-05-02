@@ -10,13 +10,11 @@ const Login = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const from  = location?.state?.from?.pathname || '/'
-  console.log(from);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     setError("");
     logIn(email,password)
       .then((result) => {

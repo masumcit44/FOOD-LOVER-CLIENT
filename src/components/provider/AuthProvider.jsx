@@ -10,6 +10,7 @@ import {
   GithubAuthProvider,
   onAuthStateChanged,
   signOut,
+  updateProfile
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { useEffect } from "react";
@@ -42,10 +43,12 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+
+
   useEffect(() => {
    onAuthStateChanged(auth, (loggedUser) => {
       if (loggedUser) {
-        console.log("state changed", loggedUser);
+        // console.log("state changed", loggedUser);
         setUser(loggedUser);
         setLoader(false);
       }

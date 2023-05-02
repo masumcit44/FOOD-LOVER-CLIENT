@@ -5,7 +5,7 @@ import { FaThumbsUp } from "react-icons/fa";
 import { Button, Container } from "react-bootstrap";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import { FaBookmark } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "react-bootstrap/Spinner";
@@ -47,7 +47,7 @@ const ChefDetails = () => {
           <div>
             <h4 className="text-center">Food Of The Month</h4>
 
-            <div className="d-flex  gap-5 justify-content-center ">
+            <div className="d-md-flex  gap-5 justify-content-center ">
               {recipe.map((food, index) => (
                 <div className=" food-card card h-100  rounded-5  " key={index}>
                   <div className="card-body">
@@ -90,8 +90,9 @@ const ChefDetails = () => {
                               pauseOnHover
                               theme="colored"
                             />
-                            <Button onClick={notify} variant="">
-                              <FaBookmark className="text-primary fs-4"></FaBookmark>
+                            <Button onClick={notify} variant="primary">
+                              Favorite
+                              <FaHeart className="text-danger ms-2 fs-4"></FaHeart>
                               <ToastContainer />
                             </Button>
                             <ToastContainer />

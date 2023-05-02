@@ -22,7 +22,7 @@ const ExtraSectionOne = () => {
     <div>
       <h4 className="text-center">Food Of The Month</h4>
 
-      <div className="d-flex gap-5 justify-content-center ">
+      <div className="d-md-flex gap-5 justify-content-center ">
         {recipes.map((food, index) => (
           <div className=" food-card  rounded-5  " key={index}>
             <div className="">
@@ -33,7 +33,7 @@ const ExtraSectionOne = () => {
               />
               <div className="p-4 card-body">
                 <h4>{food.name}</h4>
-                <div className="d-flex ga justify-content-between">
+                <div className="d-md-flex ga justify-content-between">
                   <p>foodcost: ${food.foodcost}</p>
                   <Button variant="danger">View Receipe</Button>
                 </div>

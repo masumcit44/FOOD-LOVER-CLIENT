@@ -30,3 +30,26 @@
     background: linear-gradient(180deg, #F3F3F3 0%, rgba(243, 243, 243, 0) 100%);
     box-shadow: 0px 10px 30px rgba(229, 204, 204, 0.05);
 }
+@media screen and (max-width: 540px) {
+  .carousel-img{
+    width: 100%;
+}
+.chef-description {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 8px;
+  /* or 162% */
+
+  color: #3e3e3e;
+}
+.chef-name {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 8px;
+  line-height: 28px;
+
+  color: #363958;
+}
+}

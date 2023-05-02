@@ -42,7 +42,7 @@ const Chef = () => {
             key={chef.id}
           >
             <img
-              className="rounded w-100"
+              className="rounded w-100 chef-image"
               src={chef.photo}
               alt=""
               height="300"

@@ -5,8 +5,11 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithubAlt } from "react-icons/fa";
 import { useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { getAuth, updateProfile } from "firebase/auth";
+import { app } from "../../firebase/firebase.config";
+const auth = getAuth(app);
 const Register = () => {
-  const { signUp, googleSignUp , githubSignUp } = useContext(AuthContext);
+  const { signUp, googleSignUp, githubSignUp } = useContext(AuthContext);
   const [error, setError] = useState("");
   const handleRegister = (event) => {
     event.preventDefault();
@@ -30,14 +33,18 @@ const Register = () => {
     console.log(error);
     signUp(email, password)
       .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+        console.log("user logged in", result.user);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: url,
+        });
       })
       .catch((error) => {
         setError(error);
         console.log(error);
       });
   };
+
   const handleGoogleSignUp = () => {
     googleSignUp()
       .then((result) => console.log(result.user))
@@ -121,7 +128,7 @@ const Register = () => {
           Submit
         </Button>
         <p className="text-center  fw-bold mt-3 ">
-           Have an account? please{" "}
+          Have an account? please{" "}
           <Link className="" to="/login">
             login
           </Link>{" "}
@@ -142,7 +149,8 @@ const Register = () => {
           Login With Google
         </Button>
         <p className="col-2 text-center my-auto fw-bold text-dark fs-5"></p>
-        <Button onClick={handleGithubSignUp}
+        <Button
+          onClick={handleGithubSignUp}
           variant="outline-warning"
           className=" col-5  bg-danger  text-dark fw-bold mt-2  "
         >

@@ -8,19 +8,25 @@ import "@smastrom/react-rating/style.css";
 import { FaBookmark } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Spinner from "react-bootstrap/Spinner";
 const ChefDetails = () => {
   const chef = useLoaderData();
   const { id } = useParams();
   const [recipe, setRecipe] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(`http://localhost:3000/receipe/${id}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data.recipes));
+    setLoading(false);
   }, []);
   console.log(recipe);
   const notify = () => toast("Added to your favourite list");
+  if (loading) {
+    return <Spinner animation="border" className="ms-5" variant="primary" />;
+  }
   return (
-    <Container>
+    <Container className="my-5">
       <div className="chef-banner d-flex gap-5 my-3">
         <img className="chef-photo rounded " src={chef.photo} alt="" />
         <div className="chef-details  ">
@@ -89,7 +95,6 @@ const ChefDetails = () => {
                               <ToastContainer />
                             </Button>
                             <ToastContainer />
-                            
                           </div>
                         </div>
                       </div>

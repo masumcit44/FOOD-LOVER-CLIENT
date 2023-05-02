@@ -10,13 +10,19 @@ import "swiper/css/navigation";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Pagination } from "swiper";
+import Spinner from "react-bootstrap/Spinner";
 const Chef = () => {
+  const [loading, setLoading] = useState(true);
   const [chefs, setChefs] = useState([]);
   useEffect(() => {
     fetch("http://localhost:3000/chef")
       .then((res) => res.json())
       .then((data) => setChefs(data));
+      setLoading(false)
   }, []);
+  if (loading) {
+    return <Spinner animation="border" className="ms-5" variant="primary" />;
+  }
   return (
     <div>
       <h4>This is chef</h4>

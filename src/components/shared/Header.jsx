@@ -17,6 +17,8 @@ const Header = () => {
             <Nav className="mx-auto d-flex gap-5">
               <Link to="/" className="text-decoration-none text-dark fw-bold fs-6">Home</Link>
               <Link to="/blog" className="text-decoration-none text-dark fw-bold fs-6">Blog</Link>
+              <Link to="/login" className="text-decoration-none text-dark fw-bold fs-6">Login</Link>
+              <Link to="/register" className="text-decoration-none text-dark fw-bold fs-6">Sign Up</Link>
             </Nav>
             <Nav>
               <FaUserAlt></FaUserAlt>

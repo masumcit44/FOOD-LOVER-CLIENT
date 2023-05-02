@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithubAlt } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
-  const { logIn, githubLogin } = useContext(AuthContext);
+  const { logIn, githubSignUp  , googleSignUp} = useContext(AuthContext);
   const [error, setError] = useState("");
   const handleLogin = (event) => {
     event.preventDefault();
@@ -23,13 +23,22 @@ const Login = () => {
   };
 
   const handleGithubLogin = () => {
-    githubLogin()
+    githubSignUp()
       .then((result) => console.log(result.user))
       .catch((error) => {
         setError(error);
         console.log(error);
       });
   };
+  const handleGoogleLogin = () => {
+    googleSignUp()
+      .then((result) => console.log(result.user))
+      .catch((error) => {
+        setError(error);
+        console.log(error);
+      });
+  };
+  
   return (
     <div className="w-50 mx-auto  ">
       <Form
@@ -72,7 +81,7 @@ const Login = () => {
         <div className=" border-2  border-bottom  border-danger col-5"></div>
       </div>
       <div className="row mt-2 mb-4 ">
-        <Button
+        <Button onClick={handleGoogleLogin}
           variant="outline-warning"
           className=" col-5  bg-danger  text-dark fw-bold mt-2  "
         >

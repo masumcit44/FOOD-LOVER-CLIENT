@@ -30,16 +30,14 @@ const AuthProvider = ({ children }) => {
   const githubSignUp = () => {
     return signInWithPopup(auth, githubProvider);
   };
-  const githubLogin = () => {
-    return signInWithRedirect(auth, githubProvider);
-  };
+  
   const AuthInfo = {
     user,
     logIn,
     signUp,
     googleSignUp,
     githubSignUp,
-    githubLogin
+
   };
   return (
     <AuthContext.Provider value={AuthInfo}>{children}</AuthContext.Provider>

@@ -121,9 +121,9 @@ const Register = () => {
           Submit
         </Button>
         <p className="text-center  fw-bold mt-3 ">
-          Don't have an account? please{" "}
-          <Link className="" to="/register">
-            Register
+           Have an account? please{" "}
+          <Link className="" to="/login">
+            login
           </Link>{" "}
         </p>
       </Form>

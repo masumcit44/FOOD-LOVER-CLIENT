@@ -1,5 +1,13 @@
-.active{
+.yes-active{
     color: rgb(25, 0, 49);
     padding: 10px;
     text-decoration: none;
+    background-color: rgb(177, 0, 0);
+}
+.not-active{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px ;
+    font-size: 20px;
 }

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
-import Footer from '../../shared/Footer';
-import Header from '../../shared/Header';
+import Footer from '../../shared/Footer/Footer';
+import Header from '../../shared/Header/Header';
 
 
 const Main = () => {

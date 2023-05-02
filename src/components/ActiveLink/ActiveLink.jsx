@@ -4,7 +4,7 @@ import './ActiveLink.css'
 const ActiveLink = ({to,children}) => {
     return (
         <div>
-            <NavLink to = {to} className={({isActive}) => isActive ? "active": ""}>
+            <NavLink to = {to} className={({isActive}) => isActive ? "yes-active": "not-active"}>
             {children}
             </NavLink>
         </div>

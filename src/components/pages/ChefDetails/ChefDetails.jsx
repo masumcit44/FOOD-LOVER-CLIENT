@@ -18,7 +18,7 @@ const ChefDetails = () => {
     fetch(`http://localhost:3000/receipe/${id}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data.recipes));
-    setLoading(false);
+       setLoading(false);
   }, []);
   console.log(recipe);
   const notify = () => toast("Added to your favourite list");

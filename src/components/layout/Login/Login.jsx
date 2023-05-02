@@ -1,12 +1,16 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithubAlt } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
   const { logIn, githubSignUp  , googleSignUp} = useContext(AuthContext);
   const [error, setError] = useState("");
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from  = location?.state?.from?.pathname || '/'
+  console.log(from);
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -15,7 +19,9 @@ const Login = () => {
     console.log(email, password);
     setError("");
     logIn(email,password)
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        navigate(from,{replace:true})
+      })
       .catch((error) => {
         setError(error);
         console.log(error);
@@ -24,7 +30,9 @@ const Login = () => {
 
   const handleGithubLogin = () => {
     githubSignUp()
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        navigate(from,{replace:true})
+      })
       .catch((error) => {
         setError(error);
         console.log(error);
@@ -32,7 +40,9 @@ const Login = () => {
   };
   const handleGoogleLogin = () => {
     googleSignUp()
-      .then((result) => console.log(result.user))
+      .then((result) => {
+        navigate(from,{replace:true})
+      })
       .catch((error) => {
         setError(error);
         console.log(error);
@@ -52,6 +62,7 @@ const Login = () => {
             name="email"
             type="email"
             placeholder="Enter email"
+            required
           />
         </Form.Group>
 
@@ -62,6 +73,7 @@ const Login = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <p className="text-center text-danger  fw-bold mt-3 ">{error}</p>

@@ -4,7 +4,6 @@ import { ToastContainer, toast } from "react-toastify";
 import { Button, Container } from "react-bootstrap";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
-import LazyLoad from "react-lazy-load";
 import "react-toastify/dist/ReactToastify.css";
 const ChefSelected = ({ food }) => {
   const [click, setClick] = useState(true);
@@ -12,13 +11,12 @@ const ChefSelected = ({ food }) => {
   return (
     <div className=" food-card card  rounded-5  ">
       <div className="card-body ">
-        <LazyLoad  offset={300}>
-          <img
-            className="food-image p-4 rounded-5 w-100 "
-            src={food.photo}
-            alt=""
-          />
-        </LazyLoad>
+        <img
+          className="food-image p-4 rounded-5 w-100 "
+          src={food.photo}
+          alt=""
+        />
+
         <div className="p-4 ">
           <div className="">
             <h4>{food.name}</h4>

@@ -3,6 +3,7 @@ import { useLoaderData, useParams } from "react-router-dom";
 import "./ChefDetails.css";
 import { FaThumbsUp } from "react-icons/fa";
 
+import LazyLoad from "react-lazy-load";
 import Spinner from "react-bootstrap/Spinner";
 import ChefSelected from "../ChefSelected/ChefSelected";
 import { Container } from "react-bootstrap";
@@ -24,8 +25,9 @@ const ChefDetails = () => {
   return (
     <Container className="my-5">
       <div className="chef-banner d-flex gap-5 my-3">
-        <img className="chef-photo  " src={chef.photo} alt="" />
-
+        <LazyLoad offset={300}>
+          <img className="chef-photo  " src={chef.photo} alt="" />
+        </LazyLoad>
         <div className="chef-details  ">
           <p className="mb-0 normal-text">Hi , I am</p>
           <h4 className="chef-name">{chef.name}</h4>

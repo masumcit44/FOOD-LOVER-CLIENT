@@ -18,7 +18,7 @@ const Chef = () => {
     fetch("http://localhost:3000/chef")
       .then((res) => res.json())
       .then((data) => setChefs(data));
-      setLoading(false)
+    setLoading(false);
   }, []);
   if (loading) {
     return <Spinner animation="border" className="ml-5" variant="primary" />;
@@ -41,13 +41,15 @@ const Chef = () => {
             className="border border-2 p-3 rounded  swipe-card "
             key={chef.id}
           >
-            <img
-              className="rounded w-100 chef-image"
-              src={chef.photo}
-              alt=""
-              height="300"
-              width="250"
-            />
+            
+              <img
+                className="rounded w-100 chef-image"
+                src={chef.photo}
+                alt=""
+                height="300"
+                width="250"
+              />
+           
             <div className="chef-description">
               <h4 className=" chef-name">{chef.name}</h4>
               <p>Years of experience : {chef.years_of_experience} </p>

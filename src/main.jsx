@@ -12,7 +12,6 @@ import ChefDetails from "./components/pages/ChefDetails/ChefDetails.jsx";
 import Error from "./components/pages/ErrorPage/Error.jsx";
 import PrivateRouter from "./components/routes/PrivateRouter.jsx";
 import Blog from "./components/pages/Blog/Blog.jsx";
-import BlogContainer from "./components/layout/BlogContainer/BlogContainer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,14 +44,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
-    element: <BlogContainer></BlogContainer>,
-    children: [
-      {
-        path: "/blog",
-        element: <Blog></Blog>,
-      },
-    ],
+    path: "/blog",
+    element: <Blog></Blog>,
   },
 ]);
 

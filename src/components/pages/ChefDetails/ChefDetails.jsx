@@ -9,6 +9,7 @@ import { FaHeart } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Spinner from "react-bootstrap/Spinner";
+import LazyLoad from "react-lazy-load";
 const ChefDetails = () => {
   const chef = useLoaderData();
   const { id } = useParams();
@@ -18,9 +19,8 @@ const ChefDetails = () => {
     fetch(`http://localhost:3000/receipe/${id}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data.recipes));
-       setLoading(false);
+    setLoading(false);
   }, []);
-  console.log(recipe);
   const notify = () => toast("Added to your favourite list");
   if (loading) {
     return <Spinner animation="border" className="ml-5" variant="primary" />;
@@ -28,7 +28,12 @@ const ChefDetails = () => {
   return (
     <Container className="my-5">
       <div className="chef-banner d-flex gap-5 my-3">
-        <img className="chef-photo rounded " src={chef.photo} alt="" />
+        <LazyLoad
+          height={762} offset={300}
+          
+        >
+          <img className="chef-photo  " src={chef.photo} alt="" />
+        </LazyLoad>
         <div className="chef-details  ">
           <p className="mb-0 normal-text">Hi , I am</p>
           <h4 className="chef-name">{chef.name}</h4>

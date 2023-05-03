@@ -13,7 +13,7 @@ const ChefDetails = () => {
   const [recipe, setRecipe] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:3000/receipe/${id}`)
+    fetch(`https://food-lover-react-assignment-server.vercel.app/receipe/${id}`)
       .then((res) => res.json())
       .then((data) => setRecipe(data.recipes));
     setLoading(false);

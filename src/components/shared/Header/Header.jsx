@@ -10,6 +10,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import './Header.css'
 const Header = () => {
   const { user , handleSignOut } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="mt-2  ">
       <Navbar
@@ -41,8 +42,8 @@ const Header = () => {
             <Nav>
               {user ? (
                 <>
-                  <img className="rounded-circle header-img" src={user.photoURL} alt="" />
-                  
+                  <img className="rounded-circle header-img" src={user.photoURL} alt="no-image"   title={user.displayName} />
+
                   <Button onClick={handleSignOut} className="ms-2" variant="warning">Log Out</Button>
                 </>
               ) : (

@@ -39,7 +39,7 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/chef/${params.id}`),
+          fetch(`https://food-lover-react-assignment-server.vercel.app/chef/${params.id}`),
       },
     ],
   },

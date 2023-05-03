@@ -33,6 +33,8 @@ const Register = () => {
     }
     signUp(email, password)
       .then((result) => {
+        result.user.displayName = name;
+        result.user.photoURL = url;
         // console.log("user logged in", result.user);
         handleUpdateUser(name,url)
       })

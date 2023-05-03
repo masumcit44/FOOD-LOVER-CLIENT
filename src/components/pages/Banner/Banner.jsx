@@ -9,7 +9,7 @@ const Banner = () => {
   const [recipes, setRecipes] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    fetch("http://localhost:3000/receipe/1")
+    fetch("https://food-lover-react-assignment-server.vercel.app/receipe/1")
       .then((res) => res.json())
       .then((data) => setRecipes(data.recipes));
       setLoading(false)

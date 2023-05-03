@@ -9,7 +9,7 @@ const ExtraSectionOne = () => {
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/food")
+    fetch("https://food-lover-react-assignment-server.vercel.app/food")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
       setLoading(false)

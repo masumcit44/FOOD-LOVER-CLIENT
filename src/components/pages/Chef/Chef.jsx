@@ -15,7 +15,7 @@ const Chef = () => {
   const [loading, setLoading] = useState(true);
   const [chefs, setChefs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/chef")
+    fetch("https://food-lover-react-assignment-server.vercel.app/chef")
       .then((res) => res.json())
       .then((data) => setChefs(data));
     setLoading(false);

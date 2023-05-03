@@ -19,7 +19,7 @@ const ExtraSectionOne = () => {
   }
   return (
     <div>
-      <h4 className="text-center">Food Of The Month</h4>
+      <h4 className="text-center chef-header">Food Of <span className="text-info">The Month</span></h4>
 
       <div className="d-md-flex gap-5 justify-content-center ">
         {recipes.map((food, index) => (
@@ -31,10 +31,10 @@ const ExtraSectionOne = () => {
                 alt=""
               />
               <div className="p-4 card-body">
-                <h4>{food.name}</h4>
-                <div className="d-md-flex ga justify-content-between">
+                <h4 className="chef-name">{food.name}</h4>
+                <div className="d-md-flex gap-2 align-items-center justify-content-between chef-description">
                   <p>foodcost: ${food.foodcost}</p>
-                  <Button variant="danger">View Receipe</Button>
+                  <button type="button" class="btn btn-outline-secondary ">Receipe</button>
                 </div>
               </div>
             </div>

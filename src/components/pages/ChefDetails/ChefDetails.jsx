@@ -30,7 +30,7 @@ const ChefDetails = () => {
         </LazyLoad>
         <div className="chef-details  ">
           <p className="mb-0 normal-text">Hi , I am</p>
-          <h4 className="chef-name">{chef.name}</h4>
+          <h4 className="chef-detail-name">{chef.name}</h4>
           <p>{chef.bio}</p>
           <div className="d-flex gap-2">
             <FaThumbsUp className="fs-5  text-primary"></FaThumbsUp>

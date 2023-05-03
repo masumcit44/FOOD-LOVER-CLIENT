@@ -7,8 +7,8 @@ import ExtraSectionTwo from "../ExtraSectionTwo/ExtraSectionTwo";
 
 const Home = () => {
   return (
-    <Container className="my-5">
-      <div className="my-5">
+    <div className=" bg-light">
+      <div className=" container">
         <Banner></Banner>
       </div>
       <div className="my-5">
@@ -21,7 +21,7 @@ const Home = () => {
         <ExtraSectionTwo></ExtraSectionTwo>
       </div>
       
-    </Container>
+    </div>
   );
 };
 

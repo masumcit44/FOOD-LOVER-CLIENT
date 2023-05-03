@@ -2,54 +2,54 @@
   top: 0;
   margin-bottom: 100px;
 }
+.chef-header {
+  font-family: "Sigmar", cursive;
+  font-size: 60px;
+}
 .chef-name {
-  font-family: "Roboto";
-  font-style: normal;
+  font-family: "Sigmar", cursive;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 28px;
-
-  color: #363958;
+  font-size: 25px;
+  margin-top: 10px;
+  color: #272626;
 }
 .chef-description {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
+  font-family: "Sigmar", cursive;
   font-size: 20px;
-  line-height: 26px;
-  /* or 162% */
-
   color: #3e3e3e;
 }
 .swipe-card {
-    background: #FFFBF0;
-    box-shadow: 0px 10px 30px rgba(229, 204, 204, 0.05);
+  border: 1px solid slategrey;
+  box-shadow: 0px 10px 30px rgba(131, 227, 246, 0.05);
   border-radius: 20px;
+  background: linear-gradient(to right, #b5d097, #e1ea91);
+  
 }
-.swipe--main{
-    background: linear-gradient(180deg, #F3F3F3 0%, rgba(243, 243, 243, 0) 100%);
-    box-shadow: 0px 10px 30px rgba(229, 204, 204, 0.05);
+.swipe-main {
+  background: linear-gradient(to right, #9ac0e7, #77a5d3);
+
 }
+
 @media screen and (max-width: 540px) {
-  .carousel-img{
+  .carousel-img {
     width: 100%;
-}
-.chef-description {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 200;
-  font-size: 8px;
-  /* or 162% */
+  }
+  .chef-description {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 8px;
+    /* or 162% */
 
-  color: #3e3e3e;
-}
-.chef-name {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 200;
-  font-size: 8px;
-  line-height: 28px;
+    color: #3e3e3e;
+  }
+  .chef-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 8px;
+    line-height: 28px;
 
-  color: #363958;
-}
+    color: #363958;
+  }
 }

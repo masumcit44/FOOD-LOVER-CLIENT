@@ -1,8 +1,61 @@
-.heading-style{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.heading-style {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.header-container {
+  font-family: "Sigmar", cursive;
+  background: linear-gradient(to right, #6699cc, #336699);
+
+}
+.food-color{
+  
+}
+.panda-color{
+  
+  color: #8B008B;
 }
 
-.header-img{
-    width: 50px;
-    height: 50px;
+.lover-color{
+  color: #FFD700;
+}
+
+.header-img {
+  width: 50px;
+  height: 50px;
+}
+
+
+.fade-in {
+  opacity: 0;
+  animation: fade-in 1s ease-out forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes vibrate {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Apply the animation to an element when a class is added */
+.vibrate {
+  animation: vibrate 2s ease-in-out infinite;
 }

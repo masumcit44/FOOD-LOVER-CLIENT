@@ -2,16 +2,17 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Chef.css";
-import { FaThumbsUp } from "react-icons/fa";
+import { FaThumbsUp  , FaSmog } from "react-icons/fa";
 import "swiper/css";
 import "swiper/css/effect-flip";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Pagination } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 import Spinner from "react-bootstrap/Spinner";
 const Chef = () => {
+  
   const [loading, setLoading] = useState(true);
   const [chefs, setChefs] = useState([]);
   useEffect(() => {
@@ -23,22 +24,29 @@ const Chef = () => {
   if (loading) {
     return <Spinner animation="border" className="ml-5" variant="primary" />;
   }
+  
+    
   return (
-    <div>
-      <h4>This is chef</h4>
+    <div className="mt-5 ">
+      <h4 className="text-center chef-header text-info">Introducing Our talented 
+      <FaSmog className="text-danger mx-2"></FaSmog> <span className="text-dark">chefs</span>  </h4>
       <Swiper
-        slidesPerView={4}
-        spaceBetween={30}
+        slidesPerView={3}
+        spaceBetween={10}
         grabCursor={true}
+        autoplay={{
+          delay: 1000, // Change delay time as per your requirement
+          disableOnInteraction: true,
+        }}
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
-        className="mySwiper swipe--main px-4 py-5 "
+        modules={[Autoplay, Pagination]}
+        className="mySwiper p-5 swipe-main  "
       >
         {chefs.map((chef) => (
           <SwiperSlide
-            className="border border-2 p-3 rounded  swipe-card "
+            className=" p-3 rounded  swipe-card "
             key={chef.id}
           >
             
@@ -51,17 +59,17 @@ const Chef = () => {
               />
            
             <div className="chef-description">
-              <h4 className=" chef-name">{chef.name}</h4>
+              <h4 className=" chef-name ">{chef.name}</h4>
               <p>Years of experience : {chef.years_of_experience} </p>
               <p>Numbers of recipes : {chef.num_recipes} </p>
             </div>
             <div className="d-flex justify-content-between ">
-              <div className="d-flex gap-2">
+              <div className="d-flex gap-2 chef-description">
                 <FaThumbsUp className="fs-5  text-primary"></FaThumbsUp>
                 <p className="text-danger">{chef.likes}</p>
               </div>
               <Link to={`/chef/${chef.id}`}>
-                <Button variant="warning">View Recipes Button</Button>
+                <Button className="chef-description" variant="warning">View Recipes Button</Button>
               </Link>
             </div>
           </SwiperSlide>

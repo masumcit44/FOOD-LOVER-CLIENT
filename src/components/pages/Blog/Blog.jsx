@@ -9,6 +9,7 @@ import ActiveLink from "../../ActiveLink/ActiveLink";
 import { AuthContext } from "../../provider/AuthProvider";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import Pdf from "react-to-pdf";
+import './Blog.css'
 const ref = React.createRef();
 const Blog = () => {
   const { user, handleSignOut } = useContext(AuthContext);
@@ -16,15 +17,15 @@ const Blog = () => {
     orientation: "landscape",
   };
   return (
-    <Container ref={ref} className="fs-4 mt-2">
+    <Container ref={ref} className="fs-4 mt-2 blog-container ">
       <Navbar
         collapseOnSelect
         expand="lg"
-        bg="primary"
+    
         variant="light"
         className=""
       >
-        <Container className="">
+        <Container className="header-container mb-2">
           <Navbar.Brand href="#home" className="fw-bold fs-2 ">
             Food Lover
           </Navbar.Brand>

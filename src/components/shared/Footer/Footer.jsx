@@ -1,11 +1,11 @@
 import React from "react";
 import { FaFacebook,FaInstagram , FaTwitter } from "react-icons/fa";
-
+import './Footer.css'
 const Footer = () => {
   return ( 
-    <div className="p-5 bg-light fw-bold mb-3">
+    <div className="p-5 bg-light header-container fw-bold mb-3">
       <div className="row ">
-        <h4 className="col-md-3 fw-bold fs-3 heading-style ">Food Lover</h4>
+        <h4 className="col-md-3 fw-bold fs-3  "> <span className="lover-color">Food</span> <span className="a-color">Lover</span></h4>
         <div className="col-md-3">
           <h4 className="fw-bold fs-3">Recent Articles</h4>
           <ul>

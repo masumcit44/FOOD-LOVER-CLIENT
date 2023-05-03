@@ -1,3 +1,13 @@
-.ExtraSectionTwo-bg{
-    background: #cedaf0;
+.ExtraSectionTwo-bg {
+    background: linear-gradient(to bottom, #FF80AB, #FF4081);
+}
+.extra-section-heading {
+  font-family: "Sigmar", cursive;
+  font-size: 30px;
+  text-align: center;
+}
+.extra-2-btn{
+        font-family: "Sigmar", cursive;
+        font-size: 15px;
+        color: #3e3e3e;
 }

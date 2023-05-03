@@ -5,38 +5,37 @@ import { Button, Container } from "react-bootstrap";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import "react-toastify/dist/ReactToastify.css";
+import './ChefSelected.css'
 const ChefSelected = ({ food }) => {
   const [click, setClick] = useState(true);
   const notify = () => toast("Added to your favourite list");
   return (
-    <div className=" food-card card  rounded-5  ">
-      <div className="card-body ">
+    <div className=" food-card card mt-2  rounded-5  ">
+      <div className="card-body  ">
         <img
-          className="food-image p-4 rounded-5 w-100 "
+          className="food-image  rounded-5 w-100 "
           src={food.photo}
           alt=""
         />
 
-        <div className="p-4 ">
-          <div className="">
-            <h4>{food.name}</h4>
+          <div className="mt-2 food-details ">
+            <h4 className="lover-color">{food.name}</h4>
             <div>
-              <h4> Ingredients:</h4>
-              <div className="ps-3">
+              <h4 className="text-info"> Ingredients:</h4>
+              <div className="ps-3 food-details-small">
                 {food.ingredients.map((ingredient, index) => (
                   <li key={index}>{ingredient}</li>
                 ))}
               </div>
-            </div>
-            <h4>Cooking Method:</h4>
-            <p>{food.cookingMethod}</p>
+            <h4 className="text-info">Cooking Method:</h4>
+            <p className="food-details-small">{food.cookingMethod}</p>
 
-            <div>
-              <h4>Rating:</h4>
+            <div className="">
+              <h4 className="text-info">Rating:</h4>
               <div className="d-flex align-items-center justify-content-between">
                 <Rating
                   disabled
-                  style={{ maxWidth: 180 }}
+                  style={{ maxWidth: 160 }}
                   value={food.rating}
                   readOnly
                 />

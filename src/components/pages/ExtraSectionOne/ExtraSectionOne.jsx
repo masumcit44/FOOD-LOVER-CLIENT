@@ -34,7 +34,7 @@ const ExtraSectionOne = () => {
                 <h4 className="chef-name">{food.name}</h4>
                 <div className="d-md-flex gap-2 align-items-center justify-content-between chef-description">
                   <p>foodcost: ${food.foodcost}</p>
-                  <button type="button" class="btn btn-outline-secondary ">Receipe</button>
+                  <button type="button" class="btn btn-outline-info ">Receipe</button>
                 </div>
               </div>
             </div>

@@ -1,48 +1,60 @@
 .chef-photo {
-  width: 800px;
+  width: 500px;
   height: 100vh;
+  border-radius: 10px;
 }
 .chef-detail-name {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
+  font-family: "Sigmar", cursive;
+  font-weight: bolder;
+  font-weight: 500;
   font-size: 55px;
-  line-height: 79px;
-
-  color: #121212;
+  color: yellow;
 }
+.like-text{
+  
+  font-size: 30px;
+}
+
+.chef-details {
+  font-family: "Sigmar", cursive;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
 .chef-banner {
-    background: rgba(79, 157, 166, 0.2);
+  background: linear-gradient(to right, #3498db, #8e44ad);
   padding: 60px;
+  border: none;
+  border-radius: 10px;
 }
 .normal-text {
-  font-family: "Poppins";
-  font-style: normal;
+  font-family: "Sigmar", cursive;
+  font-weight: bolder;
   font-weight: 600;
   font-size: 35px;
   line-height: 36px;
 }
 
 @media screen and (max-width: 540px) {
-  .carousel-img{
+  .carousel-img {
     width: 100%;
-}
-.chef-description {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 200;
-  font-size: 8px;
-  /* or 162% */
+  }
+  .chef-description {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 8px;
+    /* or 162% */
 
-  color: #3e3e3e;
-}
-.chef-detail-name {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 200;
-  font-size: 8px;
-  line-height: 28px;
+    color: #3e3e3e;
+  }
+  .chef-detail-name {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 200;
+    font-size: 8px;
+    line-height: 28px;
 
-  color: #363958;
-}
+    color: #363958;
+  }
 }

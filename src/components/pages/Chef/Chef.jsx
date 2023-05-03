@@ -35,7 +35,7 @@ const Chef = () => {
         spaceBetween={10}
         grabCursor={true}
         autoplay={{
-          delay: 1000, // Change delay time as per your requirement
+          delay: 2000, // Change delay time as per your requirement
           disableOnInteraction: true,
         }}
         pagination={{

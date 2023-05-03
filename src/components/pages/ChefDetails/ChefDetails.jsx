@@ -31,20 +31,31 @@ const ChefDetails = () => {
         <div className="chef-details  ">
           <p className="mb-0 normal-text">Hi , I am</p>
           <h4 className="chef-detail-name">{chef.name}</h4>
-          <p>{chef.bio}</p>
-          <div className="d-flex gap-2">
-            <FaThumbsUp className="fs-5  text-primary"></FaThumbsUp>
-            <p className="text-danger">{chef.likes}</p>
+          <p className="">{chef.bio}</p>
+          <div className="d-flex gap-2 align-items-center ">
+            <p className="like-text">
+              <span>Total</span>{" "}
+              <span className="text-warning">{chef.likes}</span>{" "}
+              <span>Likes</span>
+            </p>
           </div>
 
-          <p>Numbers of recipes : {chef.num_recipes} </p>
-          <p>Years of experience : {chef.years_of_experience} </p>
+          <p>
+            Numbers of recipes :{" "}
+            <span className="text-warning">{chef.num_recipes}</span>{" "}
+          </p>
+          <p>
+            Years of experience :{" "}
+            <span className="text-warning">{chef.years_of_experience}</span>
+          </p>
         </div>
       </div>
       <div>
         <div>
           <div>
-            <h4 className="text-center">Chef selected food receipe</h4>
+            <h4 className="text-center banner-header shake">
+              Chef selected <span className="lover-color">food receipe</span>
+            </h4>
 
             <div className="d-md-flex  gap-5 justify-content-center ">
               {recipe.map((food, index) => (

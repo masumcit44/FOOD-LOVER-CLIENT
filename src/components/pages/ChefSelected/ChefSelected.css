@@ -1,0 +1,14 @@
+.food-details {
+  font-family: "Sigmar", cursive;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.food-details-small {
+  font-family: "Bangers", cursive;
+  font-family: "Bebas Neue", cursive;
+  font-family: "Darumadrop One", cursive;
+  font-family: "Luckiest Guy", cursive;
+}
+.food-card {
+  background: linear-gradient(to right, #6699cc, #336699);
+}

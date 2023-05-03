@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import { FaGoogle, FaGithubAlt } from "react-icons/fa";
 import { useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth , updateProfile } from "firebase/auth";
 import { app } from "../../firebase/firebase.config";
 const auth = getAuth(app);
 const Register = () => {
-  const { signUp, googleSignUp, githubSignUp } = useContext(AuthContext);
+  const { signUp, googleSignUp, githubSignUp , handleUpdateUser } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const handleRegister = (event) => {
     event.preventDefault();
@@ -30,17 +31,13 @@ const Register = () => {
       setError("password does't match");
       return;
     }
-    console.log(error);
     signUp(email, password)
       .then((result) => {
-        console.log("user logged in", result.user);
-        updateProfile(auth.currentUser, {
-          displayName: name,
-          photoURL: url,
-        });
+        // console.log("user logged in", result.user);
+        handleUpdateUser(name,url)
       })
       .catch((error) => {
-        setError(error);
+        setError(error.message);
         console.log(error);
       });
   };

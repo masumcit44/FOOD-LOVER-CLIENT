@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import "./ChefDetails.css";
 import { FaThumbsUp } from "react-icons/fa";
-import { Button, Container } from "react-bootstrap";
-import { Rating } from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
-import { FaHeart } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 import Spinner from "react-bootstrap/Spinner";
 import LazyLoad from "react-lazy-load";
+import ChefSelected from "../ChefSelected/ChefSelected";
+import { Container } from "react-bootstrap";
 const ChefDetails = () => {
   const chef = useLoaderData();
   const { id } = useParams();
@@ -21,17 +19,14 @@ const ChefDetails = () => {
       .then((data) => setRecipe(data.recipes));
     setLoading(false);
   }, []);
-  const notify = () => toast("Added to your favourite list");
+
   if (loading) {
     return <Spinner animation="border" className="ml-5" variant="primary" />;
   }
   return (
     <Container className="my-5">
       <div className="chef-banner d-flex gap-5 my-3">
-        <LazyLoad
-          height={762} offset={300}
-          
-        >
+        <LazyLoad height={762} offset={300}>
           <img className="chef-photo  " src={chef.photo} alt="" />
         </LazyLoad>
         <div className="chef-details  ">
@@ -43,71 +38,19 @@ const ChefDetails = () => {
             <p className="text-danger">{chef.likes}</p>
           </div>
 
-          <p>Years of experience : {chef.years_of_experience} </p>
           <p>Numbers of recipes : {chef.num_recipes} </p>
+          <p>Years of experience : {chef.years_of_experience} </p>
         </div>
       </div>
       <div>
         <div>
           <div>
-            <h4 className="text-center">Food Of The Month</h4>
+            <h4 className="text-center">Chef selected food receipe</h4>
 
             <div className="d-md-flex  gap-5 justify-content-center ">
-              {recipe.map((food, index) => (
-                <div className=" food-card card h-100  rounded-5  " key={index}>
-                  <div className="card-body">
-                    <img
-                      className="food-image p-4 rounded-5 w-100 "
-                      src={food.photo}
-                      alt=""
-                    />
-                    <div className="p-4 ">
-                      <div className="">
-                        <h4>{food.name}</h4>
-                        <h4>Cooking Method:</h4>
-                        <p>{food.cookingMethod}</p>
-                        <div>
-                          <h4> Ingredients:</h4>
-                          <div className="ps-3">
-                            {food.ingredients.map((ingredient) => (
-                              <li>{ingredient}</li>
-                            ))}
-                          </div>
-                        </div>
-                        <div>
-                          <h4>Rating:</h4>
-                          <div className="d-flex align-items-center justify-content-between">
-                            <Rating
-                              disabled
-                              style={{ maxWidth: 180 }}
-                              value={food.rating}
-                              readOnly
-                            />
-                            <ToastContainer
-                              position="top-right"
-                              autoClose={5000}
-                              hideProgressBar={false}
-                              newestOnTop={false}
-                              closeOnClick
-                              rtl={false}
-                              pauseOnFocusLoss
-                              draggable
-                              pauseOnHover
-                              theme="colored"
-                            />
-                            <Button onClick={notify} variant="primary">
-                              Favorite
-                              <FaHeart className="text-danger ms-2 fs-4"></FaHeart>
-                              <ToastContainer />
-                            </Button>
-                            <ToastContainer />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              {recipe.map((food, index) => 
+                <ChefSelected food={food} key={index} ></ChefSelected>
+              )}
             </div>
           </div>
         </div>

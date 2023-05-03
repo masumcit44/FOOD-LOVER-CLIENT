@@ -10,7 +10,7 @@ import {
   GithubAuthProvider,
   onAuthStateChanged,
   signOut,
-  updateProfile
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { useEffect } from "react";
@@ -20,39 +20,45 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loader, setLoader] = useState(true);
+  const [loaderData, setLoaderData] = useState(true);
   const logIn = (email, password) => {
-    setLoader(true);
+    setLoaderData(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const signUp = (email, password) => {
-    setLoader(true);
+    setLoaderData(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const googleSignUp = () => {
-    setLoader(true);
+    setLoaderData(true);
     return signInWithPopup(auth, googleProvider);
   };
   const githubSignUp = () => {
-    setLoader(true);
+    setLoaderData(true);
     return signInWithPopup(auth, githubProvider);
   };
 
   const handleSignOut = () => {
-    setUser(null)
+    setLoaderData(true);
     return signOut(auth);
   };
 
-
+  const handleUpdateUser = (name,url) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: url,
+    });
+  };
 
   useEffect(() => {
-   onAuthStateChanged(auth, (loggedUser) => {
-      if (loggedUser) {
-        // console.log("state changed", loggedUser);
-        setUser(loggedUser);
-        setLoader(false);
-      }
+    const unsubcribe = onAuthStateChanged(auth, (loggedUser) => {
+      console.log("state changed", loggedUser);
+      setUser(loggedUser);
+      setLoaderData(false);
     });
+    return () => {
+      unsubcribe();
+    };
   }, []);
 
   const AuthInfo = {
@@ -61,8 +67,9 @@ const AuthProvider = ({ children }) => {
     signUp,
     googleSignUp,
     githubSignUp,
-    loader,
+    loaderData,
     handleSignOut,
+    handleUpdateUser
   };
   return (
     <AuthContext.Provider value={AuthInfo}>{children}</AuthContext.Provider>

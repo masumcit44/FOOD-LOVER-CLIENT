@@ -21,7 +21,7 @@ const Login = () => {
         navigate(from,{replace:true})
       })
       .catch((error) => {
-        setError(error);
+        setError(error.message);
         console.log(error);
       });
   };
@@ -32,7 +32,7 @@ const Login = () => {
         navigate(from,{replace:true})
       })
       .catch((error) => {
-        setError(error);
+        setError(error.messager);
         console.log(error);
       });
   };
@@ -42,7 +42,7 @@ const Login = () => {
         navigate(from,{replace:true})
       })
       .catch((error) => {
-        setError(error);
+        setError(error.message);
         console.log(error);
       });
   };

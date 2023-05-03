@@ -14,7 +14,6 @@ const ExtraSectionOne = () => {
       .then((data) => setRecipes(data));
       setLoading(false)
   }, []);
-  console.log(recipes);
   if (loading) {
     return <Spinner animation="border" className="ml-5" variant="primary" />;
   }
